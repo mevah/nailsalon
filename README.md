@@ -14,6 +14,7 @@
 8. Azure cognitive services Computer Vision and Text Analysis
 9. Google Cloud AutoML tabular 
 10.Google Maps, Geocoding,
+
 ===
 
 ## Folder Structure 
