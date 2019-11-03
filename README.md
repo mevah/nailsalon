@@ -18,8 +18,8 @@
 
 ## Folder Structure 
 
-ReportingDashboard: Reporting Dashboard source code for incident report generation
-Bot: Source code for Azure bot framework and Azure cognitive services 
-BackendServer: Flask based backend server for answering request from bot and serving as backend of reporting backend
-Analysis: Data analysis source code 
-docs: Documents
+1. ReportingDashboard: Reporting Dashboard source code for incident report generation
+2. Bot: Source code for Azure bot framework and Azure cognitive services 
+3. BackendServer: Flask based backend server for answering request from bot and serving as backend of reporting backend
+4. Analysis: Data analysis source code 
+5. docs: Documents
