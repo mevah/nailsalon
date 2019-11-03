@@ -13,7 +13,7 @@
 7. NLTK and Azure cognitive Services for natural language processing
 8. Azure cognitive services Computer Vision and Text Analysis
 9. Google Cloud AutoML tabular 
-10.Google Maps, Geocoding,
+10.Google Maps Platform, Geocoding,
 
 ===
 
