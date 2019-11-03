@@ -24,3 +24,4 @@
 3. BackendServer: Flask based backend server for answering request from bot and serving as backend of reporting backend
 4. Analysis: Data analysis source code 
 5. docs: Documents
+6. Reuters Data Full python notebook that loads entites from Google Maps in certain area, then loads the news articles that are related to slavory and contains that entity. For each entity the score is output as a sentiment of how positive or negative is the news for this entity.
