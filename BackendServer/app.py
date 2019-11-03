@@ -19,7 +19,7 @@ def fn_home():
 	req_body = request.get_json()
 	location = req_body['location']
 	url = req_body['url']
-	temp_url = "https://maps.googleapis.com/maps/api/geocode/json?address="+urllib.parse.quote_plus(location)+"&key=AIzaSyA4oyL-XGqNGsyIoVqxzmkKavMiDTczewc"
+	temp_url = "https://maps.googleapis.com/maps/api/geocode/json?address="+urllib.parse.quote_plus(location)+"&key="
 	temp_url = temp_url
 	print(temp_url)
 	contents = urllib.request.urlopen(temp_url).read()
