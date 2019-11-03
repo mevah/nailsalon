@@ -1,0 +1,9 @@
+setwd('/Users/zeeshan/Desktop/Sandbox/fun/Hackathons/HumanTrafficing/Analysis')
+library(data.table)
+temp <- fread("dataframe.csv")
+head(temp)
+temp$V1 <- NULL
+head(temp)
+temp = temp[-1, ]
+head(temp)
+fwrite(temp, 'output.csv')

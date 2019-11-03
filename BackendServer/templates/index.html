@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Pinpoint Platform</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+    <meta charset="utf-8">
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script>
+      var map;
+      var mapsCenter = {lat: 47.374979, lng: 8.553778};
+
+      function placeMarker(map, location,filename) {
+      
+
+        var iconname = "http://www.myiconfinder.com/uploads/iconsets/256-256-76f453c62108782f0cad9bfc2da1ae9d.png";
+        //{{url_for('static', filename='upload/' + '1572701345789;;;Pestalozzistrasse 3, 8032 Zürich.jpg')}}
+        var icon = {
+              url: iconname, // url
+              scaledSize: new google.maps.Size(50, 50), // scaled size
+              origin: new google.maps.Point(0,0), // origin
+              anchor: new google.maps.Point(0, 0) // anchor
+          };
+
+
+            var marker = new google.maps.Marker({
+              position: location,
+              map: map,
+              icon: icon
+            });
+            var content = "<strong>New Incident</strong><br><img border=\"0\" src=\"{{url_for('static', filename='temptemp')}}\" alt=\"BAR\" width=\"200\" height=\"auto\"><br> Reported today at 16:00"
+            content = content.replace("temptemp", filename)
+            var infowindow = new google.maps.InfoWindow({
+              content: content
+            });
+            infowindow.open(map,marker);
+          }
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: mapsCenter,
+          zoom: 17,
+          disableDefaultUI: true
+        });
+
+        incidents_url = document.location.origin + "/incidents" 
+        var settings = {
+          "async": true,
+          "crossDomain": true,
+          "url": incidents_url,
+          "method": "GET",
+          "headers": {
+            "cache-control": "no-cache",
+            "postman-token": "194d014c-7cc3-fb31-039c-58e6bf329f18"
+          }
+        }
+
+        var heatmapData = [
+        ];
+
+
+        {% for result in list_reports %}
+            var tempLoc = {lat: {{result['lat']}}, lng: {{result['lng']}}};
+            var fileName = "upload/{{result['file']}}"
+            placeMarker(map, tempLoc, fileName )
+            heatmapData.push({location:new google.maps.LatLng({{result['lat']}}, {{result['lng']}}), weight: 5})
+        {% endfor %}
+
+
+          var heatmap = new google.maps.visualization.HeatmapLayer({
+            data: heatmapData
+          });
+          heatmap.setMap(map);
+          heatmap.set('radius', 300);
+
+      
+      }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA4oyL-XGqNGsyIoVqxzmkKavMiDTczewc&callback=initMap&libraries=visualization"
+    async defer></script>
+  </body>
+</html>
