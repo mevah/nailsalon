@@ -1,0 +1,60 @@
+{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "version": "1.0",
+    "body": [
+      {
+        "speak": "New incident report.",
+        "type": "ColumnSet",
+        "columns": [
+          {
+            "type": "Column",
+            "width": 2,
+            "items": [
+              {
+                "type": "TextBlock",
+                "text": "Incident"
+              },
+              {
+                "type": "TextBlock",
+                "text": "New incident",
+                "weight": "bolder",
+                "size": "extraLarge",
+                "spacing": "none"
+              },
+              {
+                "type": "TextBlock",
+                "text": "4.2 ★★★☆ (Risk Score)",
+                "isSubtle": true,
+                "spacing": "none"
+              },
+              {
+                "type": "TextBlock",
+                "text": "A new incident recorded on the street Pestalozzistrasse at 8-Oct-2019",
+                "size": "small",
+                "wrap": true
+              }
+            ]
+          },
+          {
+            "type": "Column",
+            "width": 1,
+            "items": [
+              {
+                "type": "Image",
+                "url": "https://telegram.botframework.com//v3/attachments/at30032-3EGcqD1FGSs-e/views/original",
+                "size": "auto"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "actions": [
+      {
+        "type": "Action.OpenUrl",
+        "title": "More Info",
+        "url": "40.68.184.28:8081/plattform"
+      }
+    ]
+  }
