@@ -1,4 +1,4 @@
-# PinPoint Hack
+# PinPoint Hat
 
 ===
 
